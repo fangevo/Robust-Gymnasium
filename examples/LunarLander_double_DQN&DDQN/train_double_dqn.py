@@ -38,7 +38,7 @@ EPS_DECAY = 0.995
 HIDDEN_DIM = 128
 UPDATE_EVERY = 4
 SOLVE_SCORE = 200.0
-SAVE_DIR = "results_double_dqn"
+SAVE_DIR = "results/train_double_dqn"
 
 
 class QNetwork(nn.Module):

@@ -57,7 +57,7 @@ EPS_END        = 0.01
 EPS_DECAY      = 0.995
 UPDATE_EVERY   = 4
 SOLVE_SCORE    = 200.0
-SAVE_DIR       = "results_comparison"
+SAVE_DIR       = "results/compare_algorithms_perturbation_3DQN"
 
 # DQN / Double DQN hidden dim
 HIDDEN_STD     = 128

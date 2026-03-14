@@ -52,7 +52,7 @@ EPS_DECAY      = 0.995
 HIDDEN_DIM     = 256    # wider than vanilla DQN/DDQN (128) to give Dueling streams room
 UPDATE_EVERY   = 4
 SOLVE_SCORE    = 200.0
-SAVE_DIR       = "results_dueling_ddqn"
+SAVE_DIR       = "results/train_dueling_double_dqn"
 
 # PER hyperparameters
 PER_ALPHA  = 0.6   # prioritization exponent  (0 = uniform, 1 = full priority)
