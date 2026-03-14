@@ -37,7 +37,7 @@ EPS_DECAY       = 0.995
 HIDDEN_DIM      = 128
 UPDATE_EVERY    = 4
 SOLVE_SCORE     = 200.0
-SAVE_DIR        = "results_perturbation"
+SAVE_DIR        = "results/train_dqn_perturbation"
 
 # ─── Perturbation Configs ────────────────────────────────────────────────────
 # Each config: (label, noise_factor, noise_type, noise_sigma)

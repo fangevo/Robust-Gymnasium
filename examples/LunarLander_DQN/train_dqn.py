@@ -36,7 +36,7 @@ EPS_DECAY       = 0.995         # multiplicative decay per episode
 HIDDEN_DIM      = 128
 UPDATE_EVERY    = 4             # learn every N steps
 SOLVE_SCORE     = 200.0         # task considered solved
-SAVE_DIR        = "results"
+SAVE_DIR        = "results/train_dqn"
 
 
 # ─── Q-Network ───────────────────────────────────────────────────────────────

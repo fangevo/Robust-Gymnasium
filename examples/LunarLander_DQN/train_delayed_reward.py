@@ -46,7 +46,7 @@ EPS_DECAY      = 0.995
 HIDDEN_DIM     = 128
 UPDATE_EVERY   = 4
 EVAL_EPISODES  = 20
-SAVE_DIR       = "results/delayed_reward"
+SAVE_DIR       = "results/delayed_reward_dqn"
 ROBUSTNESS_EPS = 300
 
 REWARD_CONFIGS = {

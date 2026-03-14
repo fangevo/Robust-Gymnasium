@@ -39,7 +39,7 @@ N_STEPS         = 2048         # collect 2048 steps before update
 HIDDEN_DIM      = 64
 MAX_GRAD_NORM   = 0.5
 SOLVE_SCORE     = 200.0
-SAVE_DIR        = "results"
+SAVE_DIR = "results/train_ppo"
 
 
 # ─── Actor Network (Policy) ─────────────────────────────────────────────────

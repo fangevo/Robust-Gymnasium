@@ -36,7 +36,7 @@ GAMMA = 0.99
 LR = 1e-3
 HIDDEN_DIM = 128
 SOLVE_SCORE = 200.0
-SAVE_DIR = "results_normalization"
+SAVE_DIR = "results/train_reinforce_normalization"
 
 
 class PolicyNetwork(nn.Module):
