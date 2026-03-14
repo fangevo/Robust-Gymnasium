@@ -54,44 +54,53 @@ pip install -r A2C-V/requirements.txt
 From the repository root:
 
 ```bash
-python A2C-V/main.py \
-  --env-name RobustLunarLander-v3 \
-  --critic-type v \
-  --num-processes 1 \
-  --num-steps 20 \
-  --num-env-steps 500000 \
-  --lr 7e-4 \
-  --entropy-coef 0.01 \
-  --value-loss-coef 0.5 \
-  --gamma 0.99 \
-  --eval-episodes 10 \
-  --final-eval-episodes 100 \
-  --eval-interval 10 \
-  --log-interval 10 \
-  --no-cuda
+for s in 0 1 2; do
+  python A2C-V/main.py \
+    --env-name RobustLunarLander-v3 \
+    --critic-type v \
+    --seed $s \
+    --lr 7e-4 \
+    --eps 1e-5 \
+    --alpha 0.99 \
+    --gamma 0.99 \
+    --entropy-coef 0.01 \
+    --value-loss-coef 0.5 \
+    --max-grad-norm 0.5 \
+    --num-processes 16 \
+    --num-steps 5 \
+    --num-env-steps 10000000 \
+    --log-interval 10 \
+    --save-interval 100 \
+    --eval-interval 1000 \
+    --eval-episodes 10 \
+    --final-eval-episodes 100
+done
 ```
-
-If you want the original A2C-style parallel rollout behavior, increase
-`--num-processes`.
 
 To run the Q-based version with the same control variables, only change:
 
 ```bash
-python A2C-V/main.py \
-  --env-name RobustLunarLander-v3 \
-  --critic-type q \
-  --num-processes 1 \
-  --num-steps 20 \
-  --num-env-steps 500000 \
-  --lr 7e-4 \
-  --entropy-coef 0.01 \
-  --value-loss-coef 0.5 \
-  --gamma 0.99 \
-  --eval-episodes 10 \
-  --final-eval-episodes 100 \
-  --eval-interval 10 \
-  --log-interval 10 \
-  --no-cuda
+for s in 0 1 2; do
+  python A2C-V/main.py \
+    --env-name RobustLunarLander-v3 \
+    --critic-type q \
+    --seed $s \
+    --lr 7e-4 \
+    --eps 1e-5 \
+    --alpha 0.99 \
+    --gamma 0.99 \
+    --entropy-coef 0.01 \
+    --value-loss-coef 0.5 \
+    --max-grad-norm 0.5 \
+    --num-processes 16 \
+    --num-steps 5 \
+    --num-env-steps 10000000 \
+    --log-interval 10 \
+    --save-interval 100 \
+    --eval-interval 1000 \
+    --eval-episodes 10 \
+    --final-eval-episodes 100
+done
 ```
 
 Each run writes structured data to:
@@ -119,25 +128,25 @@ tracks the checkpoint or final evaluation with the highest mean reward, while
 Evaluate the best saved value-based model in the standard environment:
 
 ```bash
-python A2C-V/evaluate_saved_model.py \
-  --critic-type v \
-  --seed 0 \
-  --model-kind best \
-  --num-episodes 100
+for s in 0 1 2; do
+  python A2C-V/evaluate_saved_model.py \
+    --critic-type v \
+    --seed $s \
+    --model-kind best \
+    --num-episodes 100 \
+    --output-json A2C-V/results/critic_compare/v/seed_${s}/eval_standard.json
+done
 ```
 
-Evaluate the best saved Q-based model in a lightly perturbed physics setting:
-
 ```bash
-python A2C-V/evaluate_saved_model.py \
-  --critic-type q \
-  --seed 0 \
-  --model-kind best \
-  --num-episodes 100 \
-  --gravity -10.5 \
-  --enable-wind true \
-  --wind-power 3.0 \
-  --turbulence-power 0.2
+for s in 0 1 2; do
+  python A2C-V/evaluate_saved_model.py \
+    --critic-type q \
+    --seed $s \
+    --model-kind best \
+    --num-episodes 100 \
+    --output-json A2C-V/results/critic_compare/q/seed_${s}/eval_standard.json
+done
 ```
 
 ## Plot
